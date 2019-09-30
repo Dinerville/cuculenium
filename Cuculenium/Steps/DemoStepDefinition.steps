@@ -2,19 +2,19 @@
 
 @Given
 Step: I have entered '<aNumber>' into the calculator
-	Click element 'mainPage.numberButton' with parameters '<aNumber>'
+	Click element 'mainPage -> numberButton' with parameters '<aNumber>'
 
 @Given
 Step: I have entered '<aName>' into the my name textbox
-	Set text '<aName>' for element 'mainPage.nameTextBox'
+	Set text '<aName>' for element 'mainPage -> nameTextBox'
 
 @When
 Step: I press add
-	Click element 'mainPage.addButton'
+	Click element 'mainPage -> addButton'
 
 @Then
 Step: the result should be '<expectedResult>' on the screen
-	Get text of element 'mainPage.resultLabel' as '<actualResult>'
+	Get text of element 'mainPage -> resultLabel' as '<actualResult>'
 	Assert that '<expectedResult>' equals to '<actualResult>'. If not say 'Expected result is not equal to actual'
 
 
