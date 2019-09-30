@@ -4,4 +4,29 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Steps\DemoStepDefinition.steps" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Steps\DemoStepDefinition.steps">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="locators.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>locators.yaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="locators.yaml">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>locators.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>

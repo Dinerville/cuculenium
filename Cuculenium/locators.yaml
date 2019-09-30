@@ -1,0 +1,13 @@
+﻿mainPage:
+  numberButton:
+    type: xpath
+    value: "//button[@value='{0}']"
+  addButton:
+    type: xpath
+    value: "//button[text()='+']"
+  resultLabel:
+    type: id
+    value: result
+  nameTextBox:
+    type: id
+    value: nameInput
