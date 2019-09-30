@@ -5,13 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Steps\DemoStepDefinition.steps" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Steps\DemoStepDefinition.steps">
-      <SubType>Code</SubType>
-    </Compile>
+    <None Remove="README.md" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +20,9 @@
     <None Update="locators.yaml">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>locators.feature.cs</LastGenOutput>
+    </None>
+    <None Update="Steps\DemoStepDefinition.steps">
+      <SubType>Code</SubType>
     </None>
   </ItemGroup>
 
