@@ -1,6 +1,0 @@
-﻿#error Parsing error near 'mainPage:'
-#error Parsing error near 'numberButton:'
-#error Parsing error near 'type: xpath'
-#error Parsing error near 'value: "//button[@value='
-#error Parsing error near 'addButton:'
-#error Parsing error near 'type: xpath'
