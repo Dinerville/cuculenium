@@ -5,22 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="locators.yaml" />
     <None Remove="README.md" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="locators.feature.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>locators.yaml</DependentUpon>
-    </Compile>
+    <Content Include="locators.yaml">
+      <Generator></Generator>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="locators.yaml">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>locators.feature.cs</LastGenOutput>
-    </None>
     <None Update="Steps\DemoStepDefinition.steps">
       <SubType>Code</SubType>
     </None>
