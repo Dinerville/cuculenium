@@ -1,20 +1,20 @@
 ﻿Steps: Calculator steps
 
 @Given 
-Step: I have entered <aNumber> into the calculator
-	Click element on mainPage with name numberButton and with parameters <aNumber>
+Step: I have entered <aNumber> into the calculator and <bNumber>
+	When I click element on mainPage with name numberButton and with parameters <aNumber>
 
 @Given
 Step: I have entered <aName> into the my name textbox
-	Set text <aName> for element on mainPage with name nameTextBox
+	When I set text <aName> for element on mainPage with name nameTextBox
 
 @When
 @Then
 @Given
 Step: I press add
-	Click element on mainPage with name addButton
+	When I click element on mainPage with name addButton
 
 @Then
 Step: the result should be <expectedResult> on the screen
-	Get text of element on mainPage with name resultLabel as <actualResult>
-	Assert that <expectedResult> equals to <actualResult>. If not say 'Expected result is not equal to actual'
+	When I get text of element on mainPage with name resultLabel as <actualResult>
+	Then I assert that <expectedResult> equals to <actualResult>. If not say 'Expected result is not equal to actual'

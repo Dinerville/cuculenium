@@ -17,49 +17,88 @@ namespace StepDefinitionsGenerator
 
 			foreach (var classModel in classes)
 			{
-
+				var pattern = "<([^>]*)>";
 				var methods = new List<string>();
 				foreach (var classModelStepModel in classModel.StepModels)
 				{
 					var stepName = classModelStepModel.StepName;
 					var variables = new List<string>();
-					var matches = Regex.Matches(stepName, "<(.*)>");
+					var matches = Regex.Matches(stepName, pattern);
 					foreach (Match match in matches)
 					{
 						variables.Add(match.Groups[1].Value);
 					}
 
-					var stepFinal = Regex.Replace(stepName, "<(.*)>", "(.*)");
+					var stepFinal = Regex.Replace(stepName, pattern, "(.*)").Trim();
 
 					var method = "";
 					foreach (var tag in classModelStepModel.Tags)
 					{
-						method += $"{tag}(\"{stepFinal}\")]{Environment.NewLine}";
+						method += $"[{tag.Replace("@","")}(\"{stepFinal}\")]{Environment.NewLine}";
 					}
 
-					method += $@"
-						public void {}(string meetingNamePath)
-						{{
-							
-						}}
+					var methodName = stepFinal.ToCamelCase()
+							.Replace(" ", "")
+						.Replace("'", "")
+						.Replace("(", "")
+						.Replace(".", "")
+						.Replace(")", "")
+						.Replace("*", "");
 
-					";
+					var parameters = "";
+
+					foreach (var variable in variables)
+					{
+						parameters += $"string {variable}, ";
+					}
+
+					var steps = "";
+					foreach (var step in classModelStepModel.Steps)
+					{
+						var actualStep = step;
+						var matchesSteps = Regex.Matches(step, pattern);
+						foreach (Match matchesStep in matchesSteps)
+						{
+							actualStep = actualStep.Replace(matchesStep.Value, "{" + matchesStep.Groups[1].Value + "}");
+						}
+
+						if (matchesSteps.Count==0)
+						{
+							actualStep = step;
+						}
+
+						var tagStepDef = actualStep.Split(' ');
+						actualStep = actualStep.Substring(tagStepDef[0].Length, actualStep.Length- tagStepDef[0].Length).Trim();
+						steps+=$"{tagStepDef[0]}($\"{actualStep}\");{Environment.NewLine}";
+					}
+
+					var finalParams = "";
+					if (parameters.Length>0)
+					{
+						finalParams = parameters.Substring(0, parameters.Length - 2);
+					}
+					method += $@"
+public void {methodName}({finalParams})
+{{
+  {steps}
+}}
+
+";
+					methods.Add(method);
 				}
 
 				var classFile = $@"
-				using System;
-				using BoDi;
-				using TechTalk.SpecFlow;
-				namespace Framework
-				{{
-					[Binding]
-					public sealed class {classModel.ClassName}
-				    {{
-						{string.Join(Environment.NewLine,methods)}
-                    }}
-				}}
-
-				";
+using System;
+using BoDi;
+using TechTalk.SpecFlow;
+namespace Framework
+{{
+  [Binding]
+  public sealed class {classModel.ClassName} : TechTalk.SpecFlow.Steps
+  {{
+     {string.Join(Environment.NewLine,methods)}
+  }}
+}}";
 				if (File.Exists($"C:\\Automation\\{classModel.ClassName}.cs"))
 				{
 					File.Delete($"C:\\Automation\\{classModel.ClassName}.cs");
