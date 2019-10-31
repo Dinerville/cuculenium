@@ -1,7 +1,7 @@
 ﻿Steps: Calculator steps
 
 @Given 
-Step: I have entered <aNumber> into the calculator and <bNumber>
+Step: I have entered <aNumber> into the calculator
 	When I click element on mainPage with name numberButton and with parameters <aNumber>
 
 @Given
@@ -9,7 +9,6 @@ Step: I have entered <aName> into the my name textbox
 	When I set text <aName> for element on mainPage with name nameTextBox
 
 @When
-@Then
 @Given
 Step: I press add
 	When I click element on mainPage with name addButton
