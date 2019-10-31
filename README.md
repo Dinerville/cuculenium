@@ -1,5 +1,5 @@
 # Cuculenium
-cucumber and selenium combined
+no code but just BDD scenarios
 
 ## Cuculenium steps options
 * Get - get some value of element specified by locator. It can be some attribute value or text
