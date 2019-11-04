@@ -46,17 +46,17 @@ namespace Framework
 
 			var method = CreateTags(stepModel, stepFinal);
 
-			var steps = "";
+			var methodBody = "";
 			foreach (var step in stepModel.Steps)
 			{
-				steps += CreateMethodBody(step);
+				methodBody += CreateMethodBody(step);
 			}
 
 			
 			method += $@"
 public void {CreateMethodName(stepFinal)}({CreateParametersString(stepModel)})
 {{
-  {steps}
+  {methodBody}
 }}
 
 ";
