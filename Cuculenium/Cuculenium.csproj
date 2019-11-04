@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Steps\DemoStepDefinition.steps">
+    <None Update="Steps\CalculatorSteps.steps">
       <SubType>Code</SubType>
     </None>
   </ItemGroup>

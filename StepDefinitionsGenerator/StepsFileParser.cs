@@ -13,6 +13,7 @@ namespace StepDefinitionsGenerator
 			var steps = File.ReadAllLines(stepsFile);
 
 			var classModel = new ClassModel();
+			classModel.StepsClassPath = stepsFile;
 			StepModel currentStep = new StepModel();
 			var listOfTags = new List<string>();
 

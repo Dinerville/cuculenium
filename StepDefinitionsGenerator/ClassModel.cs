@@ -5,6 +5,7 @@ namespace StepDefinitionsGenerator
 	public class ClassModel
 	{
 		public string ClassName { get; set; }
+		public string StepsClassPath { get; set; }
 		public List<StepModel> StepModels { get; set; } = new List<StepModel>();
 	}
 }
