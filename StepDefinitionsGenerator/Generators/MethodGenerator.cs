@@ -39,7 +39,7 @@ namespace StepDefinitionsGenerator.Generators
 		{
 			var tags = "";
 			foreach (var tag in model.Tags)
-				tags += $"[{tag.Replace("@", "")}(\"{stepFinal}\")]{Environment.NewLine}";
+				tags += $"[{tag.Replace("@", "")}(\"{stepFinal}\")]{Environment.NewLine}\t\t";
 			return tags;
 		}
 
@@ -49,7 +49,7 @@ namespace StepDefinitionsGenerator.Generators
 			foreach (var step in stepModel.Steps)
 			{
 				var actualStep = GetStepWithoutTag(ReplaceStepVariables(step));
-				methodBody += $"{Environment.NewLine}\t\t{GetStepTag(step)}($\"{actualStep}\");";
+				methodBody += $"{Environment.NewLine}\t\t\t{GetStepTag(step)}($\"{actualStep}\");";
 			}
 			return methodBody;
 		}
@@ -80,11 +80,11 @@ namespace StepDefinitionsGenerator.Generators
 		{
 			var stepName = stepModel.StepName;
 			var stepFinal = Regex.Replace(stepName, VariablePattern, "(.*)").Trim();
-			var method = CreateTags(stepModel, stepFinal);
-			method += $@"
+			var method = $@"
+		{CreateTags(stepModel, stepFinal)}
 		public void {CreateMethodName(stepFinal)}({CreateParametersString(stepModel)})
 		{{
-{CreateMethodBody(stepModel)}
+			{CreateMethodBody(stepModel)}
 		}}
 ";
 			return method;

@@ -16,10 +16,11 @@ namespace StepDefinitionsGenerator.Generators
 		private static string Generate(ClassModel classModel)
 		{
 			var methods = new List<string>();
-			foreach (var classModelStepModel in classModel.StepModels)
+			classModel.StepModels.ForEach(step =>
 			{
-				methods.Add(new MethodGenerator().CreateMethodString(classModelStepModel));
-			}
+				methods.Add(new MethodGenerator().CreateMethodString(step));
+			});
+			
 
 			var classFile = $@"using TechTalk.SpecFlow;
 namespace Framework
