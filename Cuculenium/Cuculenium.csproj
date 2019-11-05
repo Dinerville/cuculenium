@@ -47,6 +47,12 @@
         <!-- the generated files can be hidden in Visual Studio -->
       </Compile>
     </ItemGroup>
+    <ItemGroup>
+      <Compile Include="$(SolutionDir)\Cuculenium\**\*.steps.cs">
+        <Visible>true</Visible>
+        <!-- the generated files can be hidden in Visual Studio -->
+      </Compile>
+    </ItemGroup>
   </Target>
   <PropertyGroup>
     <PreBuildEvent>
