@@ -8,6 +8,7 @@ namespace StepDefinitionsGenerator.Generators
 	public class MethodGenerator
 	{
 		private string VariablePattern { get; } = "<([^>]*)>";
+		private List<string> LocalVariables = new List<string>();
 		private string CreateMethodName(string stepFinal)
 		{
 			return stepFinal.ToCamelCase()
@@ -48,7 +49,7 @@ namespace StepDefinitionsGenerator.Generators
 			var methodBody = "";
 			foreach (var step in stepModel.Steps)
 			{
-				var actualStep = GetStepWithoutTag(ReplaceStepVariables(step));
+				var actualStep = GetStepWithoutTag(ReplaceStepVariables(step, GetParameters(stepModel)));
 				methodBody += $"{Environment.NewLine}\t\t\t{GetStepTag(step)}($\"{actualStep}\");";
 			}
 			return methodBody;
@@ -66,16 +67,36 @@ namespace StepDefinitionsGenerator.Generators
 				.Trim();
 		}
 
-		private string ReplaceStepVariables(string step)
+		private string ReplaceStepVariables(string step, List<string> methodVariables)
 		{
 			var actualStep = step;
 			var matchesSteps = Regex.Matches(step, VariablePattern);
 			foreach (Match matchesStep in matchesSteps)
-				actualStep = actualStep.Replace(matchesStep.Value, "{" + matchesStep.Groups[1].Value + "}");
+			{
+				if (methodVariables.Contains(matchesStep.Groups[1].Value))
+				{
+					actualStep = actualStep.Replace(matchesStep.Value, "{" + matchesStep.Groups[1].Value + "}");
+				}
+				else
+				{
+					if (!LocalVariables.Contains(matchesStep.Groups[1].Value))
+					{
+						actualStep = actualStep.Replace(matchesStep.Value, "<@setLocal(" + matchesStep.Groups[1].Value + ")>");
+						LocalVariables.Add(matchesStep.Groups[1].Value);
+					}
+					else
+					{
+						actualStep = actualStep.Replace(matchesStep.Value, "<@getLocal(" + matchesStep.Groups[1].Value + ")>");
+					}
+				}
+				
+			}
+				
 
 			if (matchesSteps.Count == 0) actualStep = step;
 			return actualStep;
 		}
+
 		public string CreateMethodString(StepModel stepModel)
 		{
 			var stepName = stepModel.StepName;

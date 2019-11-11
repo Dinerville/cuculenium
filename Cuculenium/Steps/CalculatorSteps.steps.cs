@@ -37,9 +37,8 @@ namespace Framework
 		
 		public void TheResultShouldBeOnTheScreen(string expectedResult)
 		{
-			
-			When($"I get text of element on mainPage with name resultLabel as {actualResult}");
-			Then($"I assert that {expectedResult} equals to {actualResult}. If not say 'Expected result is not equal to actual'");
+			When($"I get text of element on mainPage with name resultLabel as <@setLocal(actualResult)>");
+			Then($"I assert that {expectedResult} equals to <@getLocal(actualResult)>. If not say 'Expected result is not equal to actual'");
 		}
 
   }
