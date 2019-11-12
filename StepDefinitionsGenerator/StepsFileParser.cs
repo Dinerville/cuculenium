@@ -20,8 +20,12 @@ namespace StepDefinitionsGenerator
 			for (var index = 0; index < steps.Length; index++)
 			{
 				var step = steps[index];
-				if (step.Equals(String.Empty))
+				if (step.Equals(String.Empty)||step.StartsWith("#"))
 				{
+					if (index == steps.Length - 1)
+					{
+						classModel.StepModels.Add(currentStep);
+					}
 					continue;
 				}
 				if (step.StartsWith("Steps:"))

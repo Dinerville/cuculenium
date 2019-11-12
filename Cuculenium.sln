@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cuculenium", "Cuculenium\Cu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StepDefinitionsGenerator", "StepDefinitionsGenerator\StepDefinitionsGenerator.csproj", "{25A8A23A-C1BD-457E-8253-06AD6041F838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Browser", "Browser\Browser.csproj", "{DCDF43FF-5C73-4858-BBF6-D2D7B8F20A22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Browser", "Browser\Browser.csproj", "{DCDF43FF-5C73-4858-BBF6-D2D7B8F20A22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Testing\Testing.csproj", "{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionProcessing", "FunctionProcessing\FunctionProcessing.csproj", "{CA1DCBAC-A7DD-4F64-8D66-3757E657E8E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA1DCBAC-A7DD-4F64-8D66-3757E657E8E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1DCBAC-A7DD-4F64-8D66-3757E657E8E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1DCBAC-A7DD-4F64-8D66-3757E657E8E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1DCBAC-A7DD-4F64-8D66-3757E657E8E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

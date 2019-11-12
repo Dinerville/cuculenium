@@ -1,3 +1,4 @@
+using System;
 using TechTalk.SpecFlow;
 namespace Framework
 {
@@ -5,41 +6,24 @@ namespace Framework
   public sealed class CalculatorSteps : Steps
   {
 
-		[Given ("I have entered (.*) into the calculator")]
-		
-		public void IHaveEnteredIntoTheCalculator(string aNumber)
+		[Given ("I searched for (.*)")]
+		public void ISearchedFor(string searchString)
 		{
 			
-			When($"I click element on mainPage with name numberButton and with parameters {aNumber}");
+			When($"I set text {searchString} for element on 'mainPage' named 'searchTextBox'");
+			When($"I click element on 'mainPage' named 'searchButton'");
 		}
 
-
-		[Given("I have entered (.*) into the my name textbox")]
-		
-		public void IHaveEnteredIntoTheMyNameTextbox(string aName)
+		[When(@"I set text (.*) for element on '(.*)' named '(.*)'")]
+		public void WhenISetTextForElementOnNamed(string p0, string p1, string p2)
 		{
-			
-			When($"I set text {aName} for element on mainPage with name nameTextBox");
+			Console.WriteLine("Fine set text");
 		}
 
-
-		[When("I press add")]
-		[Given("I press add")]
-		
-		public void IPressAdd()
+		[When(@"I click element on '(.*)' named '(.*)'")]
+		public void WhenIClickElementOnNamed(string p0, string p1)
 		{
-			
-			When($"I click element on mainPage with name addButton");
+			Console.WriteLine("Fine click text");
 		}
-
-
-		[Then("the result should be (.*) on the screen")]
-		
-		public void TheResultShouldBeOnTheScreen(string expectedResult)
-		{
-			When($"I get text of element on mainPage with name resultLabel as <@setLocal(actualResult)>");
-			Then($"I assert that {expectedResult} equals to <@getLocal(actualResult)>. If not say 'Expected result is not equal to actual'");
-		}
-
-  }
+	}
 }

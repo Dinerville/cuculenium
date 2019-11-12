@@ -81,12 +81,12 @@ namespace StepDefinitionsGenerator.Generators
 				{
 					if (!LocalVariables.Contains(matchesStep.Groups[1].Value))
 					{
-						actualStep = actualStep.Replace(matchesStep.Value, "<@setLocal(" + matchesStep.Groups[1].Value + ")>");
+						actualStep = actualStep.Replace(matchesStep.Value, "<@SetLocal " + matchesStep.Groups[1].Value + ">");
 						LocalVariables.Add(matchesStep.Groups[1].Value);
 					}
 					else
 					{
-						actualStep = actualStep.Replace(matchesStep.Value, "<@getLocal(" + matchesStep.Groups[1].Value + ")>");
+						actualStep = actualStep.Replace(matchesStep.Value, "<@GetLocal " + matchesStep.Groups[1].Value + ">");
 					}
 				}
 				
