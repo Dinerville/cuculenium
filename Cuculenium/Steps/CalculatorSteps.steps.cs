@@ -17,13 +17,13 @@ namespace Framework
 		[When(@"I set text (.*) for element on '(.*)' named '(.*)'")]
 		public void WhenISetTextForElementOnNamed(string p0, string p1, string p2)
 		{
-			Console.WriteLine("Fine set text");
+			Console.WriteLine($"Fine set text {p0} {p1} {p2}");
 		}
 
 		[When(@"I click element on '(.*)' named '(.*)'")]
 		public void WhenIClickElementOnNamed(string p0, string p1)
 		{
-			Console.WriteLine("Fine click text");
+			Console.WriteLine($"Fine click text {p0} {p1}");
 		}
 	}
 }
