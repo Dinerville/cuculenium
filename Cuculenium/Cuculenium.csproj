@@ -55,8 +55,7 @@
     </ItemGroup>
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>dotnet $(SolutionDir)\StepDefinitionsGenerator\bin\Debug\netcoreapp2.1\StepDefinitionsGenerator.dll $(SolutionDir)</PreBuildEvent>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />

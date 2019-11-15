@@ -11,7 +11,9 @@ namespace StepDefinitionsGenerator
 	{
 		public static void Main(string[] args)
 		{
-			var stepsFiles = Directory.GetFiles(@"..\..\..\..\Cuculenium\Steps", "*.steps", SearchOption.AllDirectories);
+			Console.WriteLine(args.Length);
+			Console.WriteLine("Args are : " + args[0]);
+			var stepsFiles = Directory.GetFiles(args[0], "*.steps", SearchOption.AllDirectories);
 			var classes = stepsFiles.Select(StepsFileParser.Parse).ToList();
 			classes.ForEach(ClassGenerator.GenerateAndSaveAsFile);
 		}
