@@ -30,6 +30,7 @@ namespace Browser.WebElement
 			Retry.DoWithRetry(() =>
 			{
 				GetElement().Click();
+            
 			},$"I click on element by locator {Locator}");
 		}
 	}

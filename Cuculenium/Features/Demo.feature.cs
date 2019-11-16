@@ -105,12 +105,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  testRunner.Given("I go to post in tut site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 6
- testRunner.When("I navigate to url \'https://tut.by\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 7
- testRunner.When("I click element on \'mainPage\' page named \'postButton\' via browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
             }
             this.ScenarioCleanup();
         }

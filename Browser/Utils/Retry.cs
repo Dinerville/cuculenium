@@ -18,15 +18,16 @@ namespace Browser.Utils
 				{
 					Logger.Logger.LogInfo($"{actionName}");
 					action();
+                    return;
 				}
 				catch (Exception)
 				{
 					Logger.Logger.LogInfo($"Failed to perform action {actionName}. Retrying");
 				}
 
-				if (watch.ElapsedMilliseconds>Configuration.Configuration.DefaultStepExecutionWait.Milliseconds)
+				if (watch.ElapsedMilliseconds>Configuration.Configuration.DefaultStepExecutionWait.TotalMilliseconds)
 				{
-					throw new Exception($"Failed to perform action {actionName} within {Configuration.Configuration.DefaultStepExecutionWait.Seconds} seconds. Aborting");
+					throw new Exception($"Failed to perform action {actionName} within {Configuration.Configuration.DefaultStepExecutionWait.TotalSeconds} seconds. Aborting");
 				}
 			}
 		}
