@@ -1,20 +1,6 @@
 ﻿Steps: Calculator steps
 
 @Given 
-Step: I searched for <searchString>
-	When I set text <searchString> for element on 'mainPage' named 'searchTextBox'
-	When I click element on 'mainPage' named 'searchButton'
-
-@Given
-Step: I have entered <aName> into the my name textbox
-	When I set text <aName> for element on mainPage with name nameTextBox
-
-@When
-@Given
-Step: I press add
-	When I click element on mainPage with name addButton
-
-@Then
-Step: the result should be <expectedResult> on the screen
-	When I get text of element on mainPage with name resultLabel as <actualResult>
-	Then I assert that <expectedResult> equals to <actualResult>. If not say 'Expected result is not equal to actual'
+Step: I go to post in tut site
+	When I navigate to url 'https://tut.by'
+	When I click element on 'mainPage' page named 'postButton' via browser

@@ -2,4 +2,4 @@
 
 @mytag
 Scenario: Add two numbers
-	Given I searched for apple
+	Given I go to post in tut site
