@@ -5,13 +5,22 @@ namespace Framework
   public sealed class CalculatorSteps : Steps
   {
 
-		[Given ("I go to post in tut site")]
+		[Given ("I go to main tut by page")]
 		
-		public void IGoToPostInTutSite()
+		public void IGoToMainTutByPage()
 		{
 			
 			When($"I navigate to url 'https://tut.by'");
-			When($"I click element on 'mainPage' page named 'postButton' via browser");
+		}
+
+
+		[Then("I assert text is '(.*)' and click post")]
+		
+		public void IAssertTextIsAndClickPost(string text)
+		{
+			
+			Then($"text of element on 'mainPage' page named 'postButton' is '{text}'. If not say 'It is not post'");
+			When($"I click element on 'mainPage' page named 'postButton'");
 		}
 
   }

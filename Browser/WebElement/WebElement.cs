@@ -25,6 +25,17 @@ namespace Browser.WebElement
 			return Browser.Driver.FindElement(Locator);
 		}
 
+		public string GetText()
+		{
+			string text = null;
+			Retry.DoWithRetry(() =>
+			{
+				text = GetElement().Text;
+
+			}, $"I get text of element by locator {Locator}");
+			return text;
+		}
+
 		public void Click()
 		{
 			Retry.DoWithRetry(() =>

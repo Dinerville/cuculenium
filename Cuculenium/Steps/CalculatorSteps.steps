@@ -1,6 +1,10 @@
 ﻿Steps: Calculator steps
 
 @Given 
-Step: I go to post in tut site
+Step: I go to main tut by page
 	When I navigate to url 'https://tut.by'
-	When I click element on 'mainPage' page named 'postButton' via browser
+
+@Then
+Step: I assert text is '<text>' and click post
+	Then text of element on 'mainPage' page named 'postButton' is '<text>'. If not say 'It is not post'
+	When I click element on 'mainPage' page named 'postButton'

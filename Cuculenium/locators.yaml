@@ -2,3 +2,18 @@
   postButton:
     type: xpath
     value: (//*[@title='Почта'])[1]
+postPage:
+  emailInput:
+    type: id
+    value: Username
+  passwordInput:
+    type: id
+    value: Password
+  loginButton:
+    type: xpath
+    value: //*[@value='Войти']
+
+generic:
+  text:
+    type: xpath
+    value: //*[text()='{0}']

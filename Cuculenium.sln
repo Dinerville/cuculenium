@@ -9,11 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StepDefinitionsGenerator", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Browser", "Browser\Browser.csproj", "{DCDF43FF-5C73-4858-BBF6-D2D7B8F20A22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Testing\Testing.csproj", "{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionProcessing", "FunctionProcessing\FunctionProcessing.csproj", "{CA1DCBAC-A7DD-4F64-8D66-3757E657E8E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{EC7C37CA-46E3-4F59-87E0-23C3DC6CE633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{EC7C37CA-46E3-4F59-87E0-23C3DC6CE633}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +31,6 @@ Global
 		{DCDF43FF-5C73-4858-BBF6-D2D7B8F20A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCDF43FF-5C73-4858-BBF6-D2D7B8F20A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCDF43FF-5C73-4858-BBF6-D2D7B8F20A22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97CCCF06-6506-4540-A7F6-EEC5FDD2148A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA1DCBAC-A7DD-4F64-8D66-3757E657E8E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA1DCBAC-A7DD-4F64-8D66-3757E657E8E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA1DCBAC-A7DD-4F64-8D66-3757E657E8E4}.Release|Any CPU.ActiveCfg = Release|Any CPU

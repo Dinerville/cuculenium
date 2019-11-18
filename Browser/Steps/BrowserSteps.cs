@@ -6,6 +6,7 @@ using System.Text;
 using BoDi;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using YamlDotNet.Serialization;
@@ -39,6 +40,7 @@ namespace Browser.Steps
 					return By.XPath(locatorValue);
 				case "id":
 					return By.Id(locatorValue);
+				case "css":
 				case "cssselector":
 					return By.CssSelector(locatorValue);
 				case "name":
@@ -55,8 +57,8 @@ namespace Browser.Steps
 			}
 		}
 
-		[When(@"I click element on '(.*)' page named '(.*)' via browser")]
-		[Given(@"I click element on '(.*)' page named '(.*)' via browser")]
+		[When(@"I click element on '(.*)' page named '(.*)'")]
+		[Given(@"I click element on '(.*)' page named '(.*)'")]
 		public void WhenIAcceptAndChooseCreditCard(string pageName, string locatorName)
 		{
 			var locator = GetLocatorModel(pageName, locatorName);
@@ -69,6 +71,20 @@ namespace Browser.Steps
 		public void NavigateToUrl(string url)
 		{
 			Browser.Driver.Navigate().GoToUrl(url);
+		}
+
+		[Then(@"text of element on '(.*)' page named '(.*)' is '(.*)'\. If not say '(.*)'")]
+		public void ThenTextOfElementOnPageNamedIs_IfNotSay(
+			string pageName, 
+			string elementName,
+			string expectedValue,
+			string message)
+		{
+			var locator = GetLocatorModel(pageName, elementName);
+			var element = new WebElement.WebElement(Browser, locator, elementName, pageName);
+			var text = element.GetText();
+			Assert.AreEqual(expectedValue, text, message);
+			Logger.Logger.LogInfo($"Assert equals expected:[{expectedValue}], actual[{text}] with not success message {message} has PASSED");
 		}
 	}
 }

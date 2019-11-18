@@ -6,9 +6,9 @@
     "feature": "en-us"
   },
   "plugins": [],
-  "stepAssemblies": [
-    {
-      "assembly": "Browser" 
-    }
-  ]
+	"stepAssemblies": [
+		{
+			"assembly": "Browser"
+		}
+	]
 }
