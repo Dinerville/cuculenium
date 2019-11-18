@@ -17,13 +17,13 @@ namespace Browser.Browser
 
 		public BrowserBuilder WithLocalChrome()
 		{
-			Browser.Driver = new ChromeDriver(Configuration.Configuration.LocalChromeOptions);
+			Browser.Driver = new ChromeDriver(Environment.CurrentDirectory,Configuration.Configuration.LocalChromeOptions);
 			return this;
 		}
 
 		public BrowserBuilder WithLocalFirefox()
 		{
-			Browser.Driver = new FirefoxDriver(Configuration.Configuration.LocalFirefoxOptions);
+			Browser.Driver = new FirefoxDriver(Environment.CurrentDirectory,Configuration.Configuration.LocalFirefoxOptions);
 			return this;
 		}
 

@@ -28,7 +28,7 @@ namespace Browser
 		[AfterScenario]
 		public void AfterScenario()
 		{
-			Browser.Driver.Quit();
+			Browser.Driver?.Quit();
 		}
 	}
 }
