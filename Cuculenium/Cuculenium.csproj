@@ -48,6 +48,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Demo.feature</DependentUpon>
     </Compile>
+    <Compile Update="Features\DesiredSteps.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DesiredSteps.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -64,6 +69,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Demo.feature.cs</LastGenOutput>
       <Generator Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'"></Generator>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\DesiredSteps.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DesiredSteps.feature.cs</LastGenOutput>
     </SpecFlowFeatureFiles>
   </ItemGroup>
 

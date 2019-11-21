@@ -8,4 +8,4 @@ Step: I go to main tut by page
 Step: I assert text is '<text>' and click post
 	Then text of element on 'mainPage' page named 'postButton' is '<text>'. If not say 'It is not post'
 	When I click element on 'mainPage' page named 'postButton'
-	#'mainPage's postButton' text is '<text>'. if not say 'it is not text'
+	#Then 'mainPage's postButton' text is '<text>'. if not say 'it is not text'
